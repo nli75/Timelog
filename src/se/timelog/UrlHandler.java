@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class UrlHandler
  */
-@WebServlet("/UrlHandler")
+@WebServlet("/x/*")
 public class UrlHandler extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -29,15 +29,27 @@ public class UrlHandler extends HttpServlet {
 		// TODO Auto-generated method stub
 		//test 1
 		//response.getWriter().write("skriv i browsern");
-		System.out.println("helllooo2");
+		
+		// Page Not Found
+		//response.sendError(HttpServletResponse.SC_NOT_FOUND);
 		
 		//test 2. skriv till view
-		request.setAttribute("namn", "Tobias");
-		request.getSession().setAttribute("namn", "Tobias");
+		//request.setAttribute("namn", "Tobias N");
+		//request.setAttribute("url", url);
+		//request.getSession().setAttribute("namn", "Tobias");
 		
-		request.getRequestDispatcher("WEB-INF/views/admin_create_user.jsp").forward(request, response);
-		
-		//request.getQueryString()
+		//test 3. skicka beroende på url
+		String url = request.getRequestURI().toString();
+		String[] segments = url.split("/");
+		if ("create_user".equals(segments[3])) {
+			request.setAttribute("namn", "Tobias N");
+			request.setAttribute("url", segments[3]);
+			
+			request.getRequestDispatcher("/WEB-INF/views/admin_create_user.jsp").forward(request, response);
+		}
+		else {
+			response.sendError(HttpServletResponse.SC_NOT_FOUND, "Page Not Found");
+		}
 	}
 
 	/**

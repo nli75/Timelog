@@ -3,6 +3,8 @@
 %><%
     
 	String namn1 = (String)request.getAttribute("namn");
+	String url1 = (String)request.getAttribute("url");
+	
 	
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -12,7 +14,13 @@
 <title>Create User</title>
 </head>
 <body>
+
 <p>Jag är en admin och vill skapa en user.</p>
-<p><%= namn1 %></p>
+<p>Inloggad som: <%= namn1 %></p>
+
+<p></p>
+
+<p>url: <%= url1 %></p>
+
 </body>
 </html>
