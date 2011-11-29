@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class UrlHandler
  */
-@WebServlet("/s/*")
+@WebServlet("/*")
 public class UrlHandler extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -27,10 +27,10 @@ public class UrlHandler extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().write("1");
+		response.getWriter().write("skriv i browsern");
+		System.out.println("helllooo");
 		
-		
-		request.getQueryString()
+		//request.getQueryString()
 	}
 
 	/**
