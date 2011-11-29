@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class UrlHandler
  */
-@WebServlet("/*")
+@WebServlet("/UrlHandler")
 public class UrlHandler extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -27,8 +27,15 @@ public class UrlHandler extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().write("skriv i browsern");
-		System.out.println("helllooo");
+		//test 1
+		//response.getWriter().write("skriv i browsern");
+		System.out.println("helllooo2");
+		
+		//test 2. skriv till view
+		request.setAttribute("namn", "Tobias");
+		request.getSession().setAttribute("namn", "Tobias");
+		
+		request.getRequestDispatcher("WEB-INF/views/admin_create_user.jsp").forward(request, response);
 		
 		//request.getQueryString()
 	}
