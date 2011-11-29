@@ -9,4 +9,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>UrlHandler</display-name>
+    <servlet-name>UrlHandler</servlet-name>
+    <servlet-class>se.timelog.UrlHandler</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UrlHandler</servlet-name>
+    <url-pattern>/UrlHandler</url-pattern>
+  </servlet-mapping>
 </web-app>
