@@ -37,7 +37,8 @@ public class UrlHandler extends HttpServlet {
 		//request.setAttribute("namn", "Tobias N");
 		//request.setAttribute("url", url);
 		//request.getSession().setAttribute("namn", "Tobias");
-		
+		//request.getRequestDispatcher("/WEB-INF/views/admin_create_user.jsp").forward(request, response);
+
 		//test 3. skicka beroende på url
 		String url = request.getRequestURI().toString();
 		String[] segments = url.split("/");
