@@ -10,6 +10,9 @@ tmtags
 Thumbs.db
 Desktop.ini
 nbproject
+.idea/
+Timelog.iml
 
 # Project Specific Ignores
 WebContent/WEB-INF/classes/*
+
