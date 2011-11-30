@@ -2,43 +2,43 @@ package se.timelog.rmi;
 
 import java.util.ArrayList;
 
-import se.timelog.User; // Change accordingly when real model is done
+import se.timelog.UserModel; // Change accordingly when real model is done
 
 public class MockupRMI {
 
-	public ArrayList<String> userCreate(User user) {
+	public ArrayList<String> userCreate(UserModel userModel) {
 		
 		ArrayList<String> errors = new ArrayList<String>();
 		
 		// E-mail
-		if (user.email.length < 6) {
+		if (userModel.getEmail().length() < 6) {
 			errors.add("E-mail address too short.");
 		}
-		if (!user.email.contains("@")) {
+		if (!userModel.getEmail().contains("@")) {
 			errors.add("E-mail address not correct.");
 		}
 		
 		// First name
-		if (user.firstName.length < 6) {
+		if (userModel.getFirstName().length() < 6) {
 			errors.add("First name too short.");
 		}
-		if (!isAlphaSpace(user.firstName)) {
+		if (!isAlphaSpace(userModel.getFirstName())) {
 			errors.add("First name contains illegal character(s).");
 		}
 		
 		// Last name
-		if (user.lastName.length < 6) {
+		if (userModel.getLastName().length() < 6) {
 			errors.add("Last name too short.");
 		}
-		if (!isAlphaSpace(user.lastName)) {
+		if (!isAlphaSpace(userModel.getLastName())) {
 			errors.add("Last name contains illegal character(s).");
 		}
 		
 		// Password
-		if (user.password.length < 6) {
+		if (userModel.getPassword().length() < 6) {
 			errors.add("Password too short.");			
 		}
-		if (!isAlphanumeric(user.password)) {
+		if (!isAlphanumeric(userModel.getPassword())) {
 			errors.add("Password contains illegal character(s).");
 		}
 		
