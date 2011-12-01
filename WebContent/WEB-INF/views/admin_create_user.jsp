@@ -16,10 +16,10 @@
 <body>
 <div id="create_user_div">
 <h1>Skapa Användare</h1>
-	<form action=/User method="post">
+	<form action=User method="post">
 	<div id=username>Förnamn: <input type="text" name= "firstname" /></div>
 	<div id=username>Efternamn: <input type="text" name= "lastname" /></div>	
-	<div id=username>Användarnamn: <input type="text" name= "username" /></div>
+	<div id=username>Email/användarnamn: <input type="text" name= "email" /></div>
 	<div id=passord>Lösenord: <input type="text" name="password" /></div>
 	<div id= login_submit><input type="submit" value="Submit" /></div>
 	</form>
