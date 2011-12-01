@@ -42,11 +42,11 @@ public class UrlHandler extends HttpServlet {
 		//test 3. skicka beroende på url
 		String url = request.getRequestURI().toString();
 		String[] segments = url.split("/");
-		if ("create_user".equals(segments[3])) {
+		if ("login".equals(segments[3])) {
 			request.setAttribute("namn", "Tobias N");
 			request.setAttribute("url", segments[3]);
 			
-			request.getRequestDispatcher("/WEB-INF/views/admin_create_user.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
 		}
 		else {
 			response.sendError(HttpServletResponse.SC_NOT_FOUND, "Page Not Found");

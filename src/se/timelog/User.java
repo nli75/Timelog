@@ -19,8 +19,7 @@ public class User extends HttpServlet{
 	
 	protected void create(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-			request.setAttribute("namn", "Tobias N");
-		
+			request.setAttribute("namn", "Tobias N");		
 			
 			request.getRequestDispatcher("/WEB-INF/views/admin_create_user.jsp").forward(request, response);
 		
