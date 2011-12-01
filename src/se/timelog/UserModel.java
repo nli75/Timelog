@@ -2,10 +2,10 @@ package se.timelog;
 
 public class UserModel {
 
-	private String email;
-	private String firstName;
-	private String lastName;
-	private String password;
+	private String email = "";
+	private String firstName = "";
+	private String lastName = "";
+	private String password = "";
 
 	public String getEmail() {
 		return email;
