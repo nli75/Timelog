@@ -14,13 +14,16 @@
 <title>Create User</title>
 </head>
 <body>
-
-<p>Jag är en admin och vill skapa en user.</p>
-<p>Inloggad som: <%= namn1 %></p>
-
-<p></p>
-
-<p>url: <%= url1 %></p>
+<div id="create_user_div">
+<h1>Skapa Användare</h1>
+	<form action=/User method="post">
+	<div id=username>Förnamn: <input type="text" name= "firstname" /></div>
+	<div id=username>Efternamn: <input type="text" name= "lastname" /></div>	
+	<div id=username>Användarnamn: <input type="text" name= "username" /></div>
+	<div id=passord>Lösenord: <input type="text" name="password" /></div>
+	<div id= login_submit><input type="submit" value="Submit" /></div>
+	</form>
+</div>
 
 </body>
 </html>

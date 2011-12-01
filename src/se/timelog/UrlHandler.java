@@ -47,8 +47,12 @@ public class UrlHandler extends HttpServlet {
 			request.setAttribute("url", segments[3]);
 			
 			request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
-		}
-		else {
+		}else if ("create_user".equals(segments[3])){
+			request.setAttribute("namn", "Tobias N");
+			request.setAttribute("url", segments[3]);
+			//System.out.println("jag skapar en user");
+			request.getRequestDispatcher("/user.java").forward(request, response);
+		}else {
 			response.sendError(HttpServletResponse.SC_NOT_FOUND, "Page Not Found");
 		}
 	}

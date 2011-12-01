@@ -10,7 +10,7 @@
 <body>
 <div id="login_div">
 <h1>LOGGA IN</h1>
-	<form>
+	<form action=/User method="post">
 	<div id=username>Användare: <input type="text" name= "username" /></div>
 	<div id=passord>Lösenord: <input type="text" name="password" /></div>
 	<div id= login_submit><input type="submit" value="Submit" /></div>
