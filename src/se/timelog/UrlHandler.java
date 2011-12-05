@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import se.timelog.pages.Page;
 import se.timelog.pages.Start;
+import se.timelog.pages.Search;
 import se.timelog.pages.User;
 
 /**
@@ -35,6 +36,8 @@ public class UrlHandler extends HttpServlet {
     	super.init();
     	pages.put("user", new User());
     	pages.put("start", new Start());
+    	pages.put("search", new Search());
+
     }
 
 	/**
@@ -48,9 +51,9 @@ public class UrlHandler extends HttpServlet {
 		
 		Page page = pages.get(pageName);
 		
-		if( page != null ){
+		if ( page != null ){
 			page.doStuff(remainingPath, request, response);
-		}else{
+		} else {
 			response.sendError(404);
 		}
 	}

@@ -8,13 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import se.timelog.UserModel;
-import se.timelog.pages.Page;
+import se.timelog.pages.RestPage;
 import se.timelog.rmi.MockupRMI;
 
 /**
  * Servlet implementation class User
  */
-public class User extends Page {
+public class User extends RestPage {
 	
 	@Override
 	public void doCreate(HttpServletRequest request,
