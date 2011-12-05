@@ -18,6 +18,11 @@ public class User extends HttpServlet{
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	//ta username password skapa session
+	//skapa Usermodel object, fyll med username, passowrd till RMI-model
+	//få tillbaka nåt if true, return true
+	//else destroy session, return false
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/views/admin_create_user.jsp").forward(request, response);		
 		
@@ -42,6 +47,7 @@ public class User extends HttpServlet{
 		if (errorlist.isEmpty()){
 			request.getRequestDispatcher("/WEB-INF/views/success.jsp").forward(request, response);	
 		}else{
+			request.setAttribute("errors", errorlist);
 			request.getRequestDispatcher("/WEB-INF/views/admin_create_user.jsp").forward(request, response);	
 		}
 		

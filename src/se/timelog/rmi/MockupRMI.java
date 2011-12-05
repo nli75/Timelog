@@ -2,10 +2,31 @@ package se.timelog.rmi;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import se.timelog.UserModel; // Change accordingly when real model is done
 
 public class MockupRMI {
 
+	//login start
+	public boolean login(UserModel userModel){
+		String username = userModel.getEmail();
+		String password = userModel.getPassword();
+		
+		//send username, password to RMI-model
+		//get session object? or true?
+		
+		return true;
+	}
+	
+	public boolean logout(){
+		//destroy session
+		//send false to RMI-model
+		return true;
+	}
+	//login end
+	
+	//create user start
 	public ArrayList<String> userCreate(UserModel userModel) {
 		
 		ArrayList<String> errors = new ArrayList<String>();
@@ -86,4 +107,5 @@ public class MockupRMI {
 	      }
 	      return true;
 	  }
+	//create user end
 }
