@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import se.timelog.pages.Page;
-import se.timelog.pages.Start;
+import se.timelog.pages.Login;
 import se.timelog.pages.Project;
 import se.timelog.pages.Search;
 import se.timelog.pages.User;
@@ -36,7 +36,7 @@ public class UrlHandler extends HttpServlet {
     public void init() throws ServletException {
     	super.init();
     	pages.put("user", new User());
-    	pages.put("start", new Start());
+    	pages.put("login", new Login());
     	pages.put("project", new Project());
     	pages.put("search", new Search());
 

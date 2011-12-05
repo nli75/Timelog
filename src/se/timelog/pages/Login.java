@@ -1,46 +1,28 @@
 package se.timelog.pages;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import se.timelog.UserModel;
-import se.timelog.pages.Page;
 import se.timelog.rmi.MockupRMI;
 
 /**
  * Servlet implementation class Login
  */
-public class Start extends RestPage {
+public class Login extends JspPage {
 	
 	@Override
-	public void doCreate(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {		
-	}
-
-	@Override
-	public void doUpdate(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		
-	}
-
-	@Override
-	public void doDelete(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		
-	}
-
-	@Override
-	public void doGet(HttpServletRequest request, 
+	public void doStuff(List<String> remainingPath, HttpServletRequest request, 
 			HttpServletResponse response) throws ServletException, IOException {
 		
 		if ("GET".equals(request.getMethod())) {
 			request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
 		} else {
-			String  username, password;
+			String username, password;
 			
 			username = request.getParameter("username");
 			password = request.getParameter("password");
