@@ -22,16 +22,18 @@ public class Project extends RestPage {
 		if ("GET".equals(request.getMethod())) {
 			request.getRequestDispatcher("/WEB-INF/views/project_create.jsp").forward(request, response);
 		} else {
-			String name, budget, estimated_time;
+			String name, budget, estimated_time, customer;
 			
-			name = request.getParameter("name");
-			budget = request.getParameter("budget");
-			estimated_time = request.getParameter("estimated_time");
+			name			= request.getParameter("name");
+			budget			= request.getParameter("budget");
+			estimated_time	= request.getParameter("estimated_time");
+			customer		= request.getParameter("customer");
 			
 			ProjectModel projectModel = new ProjectModel();
 			projectModel.setName(name);
 			projectModel.setBudget(budget);
 			projectModel.setEstimated_time(estimated_time);
+			projectModel.setCustomer(customer);
 			
 			MockupRMI mockupRMI = new MockupRMI();
 			ArrayList<String> errorlist  = mockupRMI.projectCreate(projectModel);
