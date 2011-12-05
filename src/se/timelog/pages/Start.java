@@ -14,7 +14,7 @@ import se.timelog.rmi.MockupRMI;
 /**
  * Servlet implementation class Login
  */
-public class Start extends Page {
+public class Start extends RestPage {
 	
 	@Override
 	public void doCreate(HttpServletRequest request,
