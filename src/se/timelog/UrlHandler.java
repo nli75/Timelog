@@ -1,59 +1,57 @@
 package se.timelog;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import se.timelog.pages.Page;
+import se.timelog.pages.Start;
+import se.timelog.pages.User;
+
 /**
  * Servlet implementation class UrlHandler
  */
-@WebServlet("/x/*")
 public class UrlHandler extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
-       
+	private Map<String, Page> pages = new HashMap<String, Page>();
+
     /**
      * @see HttpServlet#HttpServlet()
      */
     public UrlHandler() {
         super();
-        // TODO Auto-generated constructor stub
+    }
+    
+    @Override
+    public void init() throws ServletException {
+    	super.init();
+    	pages.put("user", new User());
+    	pages.put("start", new Start());
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//test 1
-		//response.getWriter().write("skriv i browsern");
+		String path = request.getRequestURI().toString().replace( "/Timelog/", "" );
+		String[] pathSplitted = path.split("/");
+		List<String> remainingPath = Arrays.asList(pathSplitted);
+		String pageName = remainingPath.get(0);
 		
-		// Page Not Found
-		//response.sendError(HttpServletResponse.SC_NOT_FOUND);
+		Page page = pages.get(pageName);
 		
-		//test 2. skriv till view
-		//request.setAttribute("namn", "Tobias N");
-		//request.setAttribute("url", url);
-		//request.getSession().setAttribute("namn", "Tobias");
-		//request.getRequestDispatcher("/WEB-INF/views/admin_create_user.jsp").forward(request, response);
-
-		//test 3. skicka beroende på url
-		String url = request.getRequestURI().toString();
-		String[] segments = url.split("/");
-		if ("login".equals(segments[3])) {
-			request.setAttribute("namn", "Tobias N");
-			request.setAttribute("url", segments[3]);
-			
-			request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
-		}else if ("create_user".equals(segments[3])){
-			request.setAttribute("namn", "Tobias N");
-			request.setAttribute("url", segments[3]);
-			//System.out.println("jag skapar en user");
-			request.getRequestDispatcher("/user.java").forward(request, response);
-		}else {
-			response.sendError(HttpServletResponse.SC_NOT_FOUND, "Page Not Found");
+		if( page != null ){
+			page.doStuff(remainingPath, request, response);
+		}else{
+			response.sendError(404);
 		}
 	}
 
@@ -61,7 +59,7 @@ public class UrlHandler extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

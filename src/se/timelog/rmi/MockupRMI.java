@@ -12,11 +12,12 @@ public class MockupRMI {
 	public boolean login(UserModel userModel){
 		String username = userModel.getEmail();
 		String password = userModel.getPassword();
-		
-		//send username, password to RMI-model
-		//get session object? or true?
-		
-		return true;
+		if(username.equals("Kalle") && password.equals("apa")){
+			return true;
+			//send username, password to RMI-model
+			//get session object? or true?
+		}		
+		return false;
 	}
 	
 	public boolean logout(){
