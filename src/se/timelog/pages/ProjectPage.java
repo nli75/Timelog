@@ -21,7 +21,8 @@ public class ProjectPage extends RestPage {
 	public void doCreate(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		if ("GET".equals(request.getMethod())) {
-			request.getRequestDispatcher("/WEB-INF/views/project_create.jsp").forward(request, response);
+			request.setAttribute("content", "project_create");
+			request.getRequestDispatcher("/WEB-INF/views/page_tpl.jsp").forward(request, response);
 		} else {
 			String name;
 			int budget;
@@ -49,8 +50,9 @@ public class ProjectPage extends RestPage {
 			if (errorList.isEmpty()) {
 				request.getRequestDispatcher("/WEB-INF/views/success.jsp").forward(request, response);	
 			} else {
+				request.setAttribute("content", "project_create");
 				request.setAttribute("errorList", errorList);
-				request.getRequestDispatcher("/WEB-INF/views/project_create.jsp").forward(request, response);	
+				request.getRequestDispatcher("/WEB-INF/views/page_tpl.jsp").forward(request, response);	
 			}
 		}
 	}
