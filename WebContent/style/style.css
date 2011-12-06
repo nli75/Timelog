@@ -1,15 +1,3 @@
-#login_div{
-	float:left;
-	overflow:hidden;
-	width:400px;
-	height: 250px;
-	margin:30% 30% 30% 30%;
-	border: thin black solid;
-	text-align:center;
-	padding: 20px 30px 20px 30px;
-	
-}
-
-#login_div h1{
-	
+body{
+	background: #000;
 }

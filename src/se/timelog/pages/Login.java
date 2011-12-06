@@ -20,7 +20,8 @@ public class Login extends JspPage {
 			HttpServletResponse response) throws ServletException, IOException {
 		
 		if ("GET".equals(request.getMethod())) {
-			request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
+			request.setAttribute("content", "login");
+			request.getRequestDispatcher("/WEB-INF/views/page_tpl.jsp").forward(request, response);
 		} else {
 			String username, password;
 			
@@ -34,10 +35,12 @@ public class Login extends JspPage {
 			MockupRMI mockupRMI = new MockupRMI();
 			boolean status  = mockupRMI.login(usermodel);
 			if (status) {
-				request.getRequestDispatcher("/WEB-INF/views/home.jsp").forward(request, response);	
+				request.setAttribute("content", "home");
+				request.getRequestDispatcher("/WEB-INF/views/page_tpl.jsp").forward(request, response);	
 			} else {
+				request.setAttribute("content", "home");
 				request.setAttribute("failed", "Fel användarnamn eller lösenord");
-				request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);	
+				request.getRequestDispatcher("/WEB-INF/views/page_tpl.jsp").forward(request, response);	
 			}
 		}
 		

@@ -20,11 +20,14 @@ public class Search extends JspPage {
 		}
 		
 		if (method == null) {
-			request.getRequestDispatcher("/WEB-INF/views/search.jsp").forward(request, response);
+			request.setAttribute("content", "search");
+			request.getRequestDispatcher("/WEB-INF/views/page_tpl.jsp").forward(request, response);
 		} else if ("result".equals(method)) {
-			request.getRequestDispatcher("/WEB-INF/views/search_result.jsp").forward(request, response);			
+			request.setAttribute("content", "search_result");
+			request.getRequestDispatcher("/WEB-INF/views/page_tpl.jsp").forward(request, response);			
 		} else {
-			request.getRequestDispatcher("/WEB-INF/views/search.jsp").forward(request, response);
+			request.setAttribute("content", "search");
+			request.getRequestDispatcher("/WEB-INF/views/page_tpl.jsp").forward(request, response);
 		}
 		
 	}

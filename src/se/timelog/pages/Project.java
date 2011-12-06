@@ -20,7 +20,8 @@ public class Project extends RestPage {
 	public void doCreate(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		if ("GET".equals(request.getMethod())) {
-			request.getRequestDispatcher("/WEB-INF/views/project_create.jsp").forward(request, response);
+			request.setAttribute("content", "project_create");
+			request.getRequestDispatcher("/WEB-INF/views/page_tpl.jsp").forward(request, response);
 		} else {
 			String name, budget, estimated_time, customer;
 			
@@ -38,10 +39,12 @@ public class Project extends RestPage {
 			MockupRMI mockupRMI = new MockupRMI();
 			ArrayList<String> errorlist  = mockupRMI.projectCreate(projectModel);
 			if (errorlist.isEmpty()) {
-				request.getRequestDispatcher("/WEB-INF/views/success.jsp").forward(request, response);	
+				request.setAttribute("content", "success");
+				request.getRequestDispatcher("/WEB-INF/views/page_tpl.jsp").forward(request, response);	
 			} else {
+				request.setAttribute("content", "project_create");
 				request.setAttribute("errorList", errorlist);
-				request.getRequestDispatcher("/WEB-INF/views/project_create.jsp").forward(request, response);	
+				request.getRequestDispatcher("/WEB-INF/views/page_tpl.jsp").forward(request, response);	
 			}
 		}
 	}

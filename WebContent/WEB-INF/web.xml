@@ -9,14 +9,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  <servlet>
+  <filter>
     <description></description>
-    <display-name>UrlHandler</display-name>
-    <servlet-name>UrlHandler</servlet-name>
-    <servlet-class>se.timelog.UrlHandler</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>UrlHandler</servlet-name>
-    <url-pattern>/</url-pattern>
-  </servlet-mapping>
+    <display-name>UrlFilter</display-name>
+    <filter-name>UrlFilter</filter-name>
+    <filter-class>se.timelog.UrlFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>UrlFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
 </web-app>
