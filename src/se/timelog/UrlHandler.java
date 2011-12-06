@@ -15,6 +15,7 @@ import se.timelog.pages.Customer;
 import se.timelog.pages.Page;
 import se.timelog.pages.Login;
 import se.timelog.pages.Project;
+import se.timelog.pages.Role;
 import se.timelog.pages.Search;
 import se.timelog.pages.User;
 
@@ -41,6 +42,7 @@ public class UrlHandler extends HttpServlet {
     	pages.put("project", new Project());
     	pages.put("search", new Search());
     	pages.put("customer", new Customer());
+    	pages.put("role", new Role());
 
     }
 

@@ -3,6 +3,7 @@ package se.timelog.rmi;
 import java.util.ArrayList;
 
 import se.timelog.CustomerModel;
+import se.timelog.RoleModel;
 import se.timelog.UserModel; // Change accordingly when real model is done
 import se.timelog.ProjectModel;
 
@@ -127,6 +128,22 @@ public class MockupRMI {
 				errorList.add("Name too short.");
 			}
 			if (!isAlphaSpace(customerModel.getName())) {
+				errorList.add("Name contains illegal character(s).");
+			}
+		}
+		return errorList;
+	}
+
+	public ArrayList<String> roleCreate(RoleModel roleModel) {
+		ArrayList<String> errorList = new ArrayList<String>();
+		// Name
+		if (roleModel.getName().length() == 0) {
+			errorList.add("Name not set.");
+		} else {
+			if (roleModel.getName().length() < 6) {
+				errorList.add("Name too short.");
+			}
+			if (!isAlphaSpace(roleModel.getName())) {
 				errorList.add("Name contains illegal character(s).");
 			}
 		}

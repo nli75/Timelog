@@ -7,11 +7,11 @@ ArrayList<String> errorList = (ArrayList<String>) request.getAttribute("errorLis
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Create Customer</title>
+<title>Create Role</title>
 </head>
 <body>
 
-	<h1>Create Customer</h1>
+	<h1>Create Role</h1>
 	<div>
 		<%
 			if (errorList != null && errorList.size() > 0) {
@@ -38,7 +38,7 @@ ArrayList<String> errorList = (ArrayList<String>) request.getAttribute("errorLis
 			<input type="text" id="name" name="name" />
 		</p>
 		<p>
-			<input type="submit" value="Create Customer" />
+			<input type="submit" value="Create Role" />
 		</p>
 	</form>
 
