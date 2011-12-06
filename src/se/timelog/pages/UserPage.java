@@ -21,7 +21,6 @@ public class UserPage extends RestPage {
 			HttpServletResponse response) throws ServletException, IOException {
 		if ("GET".equals(request.getMethod())) {
 			request.setAttribute("content", "user_create");
-
 			request.getRequestDispatcher("/WEB-INF/views/page_tpl.jsp").forward(request, response);
 		} else {
 			String firstName, lastName, email, password;
@@ -30,7 +29,7 @@ public class UserPage extends RestPage {
 			lastName = request.getParameter("lastName");
 			email = request.getParameter("email");
 			password = request.getParameter("password");
-			
+
 			User user = new User();
 			user.setFirstName(firstName);
 			user.setLastName(lastName);
@@ -39,17 +38,14 @@ public class UserPage extends RestPage {
 			
 			MockupRMI mockupRMI = new MockupRMI();
 
-			ArrayList<String> errorlist  = mockupRMI.userCreate(usermodel);
-			if (errorlist.isEmpty()) {
+			ArrayList<String> errorList  = mockupRMI.userCreate(user);
+			if (errorList.isEmpty()) {
 				request.setAttribute("content", "success");
-
 				request.getRequestDispatcher("/WEB-INF/views/page_tpl.jsp").forward(request, response);	
 			} else {
-				request.setAttribute("errors", errorlist);
-				request.setAttribute("content", "success");
-
+				request.setAttribute("errorList", errorList);
+				request.setAttribute("content", "user_create");
 				request.getRequestDispatcher("/WEB-INF/views/page_tpl.jsp").forward(request, response);	
-
 			}
 		}
 	}

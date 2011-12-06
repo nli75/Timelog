@@ -17,13 +17,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-import se.timelog.pages.Customer;
+import se.timelog.pages.CustomerPage;
 import se.timelog.pages.Page;
-import se.timelog.pages.Login;
-import se.timelog.pages.Project;
-import se.timelog.pages.Role;
-import se.timelog.pages.Search;
-import se.timelog.pages.User;
+import se.timelog.pages.LoginPage;
+import se.timelog.pages.ProjectPage;
+import se.timelog.pages.RolePage;
+import se.timelog.pages.SearchPage;
+import se.timelog.pages.UserPage;
 
 /**
  */
@@ -35,12 +35,12 @@ public class UrlFilter implements Filter {
      */
     public UrlFilter() {
     super();
-		pages.put("user", new User());
-		pages.put("login", new Login());
-		pages.put("project", new Project());
-		pages.put("search", new Search());
-		pages.put("customer", new Customer());
-		pages.put("role", new Role());
+		pages.put("user", new UserPage());
+		pages.put("login", new LoginPage());
+		pages.put("project", new ProjectPage());
+		pages.put("search", new SearchPage());
+		pages.put("customer", new CustomerPage());
+		pages.put("role", new RolePage());
     }
    
       
