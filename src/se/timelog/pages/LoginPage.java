@@ -7,13 +7,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import se.timelog.UserModel;
+import se.kyh.ad10.timeloggers.server.entities.User;
 import se.timelog.rmi.MockupRMI;
 
 /**
- * Servlet implementation class Login
+ * Servlet implementation class LoginPage
  */
-public class Login extends JspPage {
+public class LoginPage extends JspPage {
 	
 	@Override
 	public void doStuff(List<String> remainingPath, HttpServletRequest request, 
@@ -27,12 +27,12 @@ public class Login extends JspPage {
 			username = request.getParameter("username");
 			password = request.getParameter("password");
 			
-			UserModel usermodel = new UserModel();
-			usermodel.setEmail(username);
-			usermodel.setPassword(password);
+			User user = new User();
+			user.setEmail(username);
+			user.setPassword(password);
 			
 			MockupRMI mockupRMI = new MockupRMI();
-			boolean status  = mockupRMI.login(usermodel);
+			boolean status  = mockupRMI.login(user);
 			if (status) {
 				request.getRequestDispatcher("/WEB-INF/views/home.jsp").forward(request, response);	
 			} else {
