@@ -40,7 +40,7 @@ public class Project extends RestPage {
 			if (errorlist.isEmpty()) {
 				request.getRequestDispatcher("/WEB-INF/views/success.jsp").forward(request, response);	
 			} else {
-				request.setAttribute("errors", errorlist);
+				request.setAttribute("errorList", errorlist);
 				request.getRequestDispatcher("/WEB-INF/views/project_create.jsp").forward(request, response);	
 			}
 		}

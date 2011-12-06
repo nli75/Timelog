@@ -1,9 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"
-	import="java.util.ArrayList"
-%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList"%>
 <%
-	ArrayList<String> errors = (ArrayList<String>)request.getAttribute("errors"); // Supposed to be array.. ? (catch to print errors)
+ArrayList<String> errorList = (ArrayList<String>) request.getAttribute("errorList");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -16,11 +14,26 @@
 </head>
 <body>
 	<h1>Create Project</h1>
-	<%
-	// if (errors != null) {
-	//		print errors(array);
-	// }
-	%>
+	<div>
+		<%
+			if (errorList != null && errorList.size() > 0) {
+				%>
+				<h4>Errors</h4>
+				<ul>
+				<%
+				for (int i=0; i < errorList.size(); i++) {
+					%>
+					<li>
+					<%= errorList.get(i) %>
+					</li>
+					<%
+				}
+				%>
+				</ul>
+				<%
+			}
+		%>
+	</div>
 	<form method="post" action="">
 		<p>
 			<label for="name">Name</label>
