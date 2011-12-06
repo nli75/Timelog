@@ -3,8 +3,6 @@
 
 	String failed =  (String)request.getAttribute("failed");
 	
-
-	
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -14,18 +12,24 @@
 <link rel="stylesheet" type="text/css" href="../style/style.css" />
 </head>
 <body>
-<div id="login_div">
-<h1>LOG IN</h1>
+		<h1>LOG IN</h1>			
+			
+	<% if(failed != null){ %>
+		<h4>Error </h4>
+		<%= failed %>
+	<% } %>
 	<form action="" method="post">
-	<% if(failed != null){
-		out.println(failed);
-	} %>
-	<div id=username>Username (email): <input type="text" name= "username" /></div>
-	<div id=passord>Password: <input type="text" name="password" /></div>
-	<div id=repeat_passord>Repeat password: <input type="text" name="password" /></div>
-	
-	<div id= login_submit><input type="submit" value="Submit" /></div>
+		<p>
+			<label for="username">Username: </label>
+			<input type="text" id="username" name="username" />
+		</p>
+		<p>
+			<label for="passord">Password: </label>
+			<input type="text" id="passord" name="passord" />
+		</p>
+		<p>
+		</p>
+			<input type="submit" value="Submit" />
 	</form>
-</div>
 </body>
 </html>
