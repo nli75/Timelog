@@ -17,7 +17,7 @@ public class MockupRMI {
 			return true;
 			//send username, password to RMI-model
 			//get session object? or true?
-		}		
+		}
 		return false;
 	}
 	
