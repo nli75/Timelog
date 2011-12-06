@@ -1,10 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"
-    
-%><%@ page import="java.util.ArrayList"%><%
-	ArrayList<String> error =  (ArrayList<String>)request.getAttribute("errors");
-
-%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="java.util.ArrayList"%>
+<% ArrayList<String> errorList = (ArrayList<String>) request.getAttribute("errorList"); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,45 +9,48 @@
 </head>
 <body>
 
-<h1>Create user</h1>
+	<h1>Create User</h1>
 	<div>
-		<% if(error != null){ %>
-			<h4>Errors</h4>
+		<%
+			if (errorList != null && errorList.size() > 0) {
+				%>
+				<h4>Errors</h4>
 				<ul>
-					<%
-					for (int i=0; i < error.size(); i++) {
-						%>
-						<li>
-						<%= error.get(i) %>
-						</li>
-						<%
-					}
+				<%
+				for (int i=0; i < errorList.size(); i++) {
 					%>
-				</ul>		
-		<% } %>
+					<li>
+					<%= errorList.get(i) %>
+					</li>
+					<%
+				}
+				%>
+				</ul>
+				<%
+			}
+		%>
 	</div>
 	<form action="" method="post">
 		<p>
-			<label for="firstname">First name: </label>
-			<input type="text" name= "firstname" id="firstname" />
+			<label for="name">First Name</label>
+			<input type="text" id="firstName" name="firstName" />
 		</p>
 		<p>
-			<label for="lastname">Last name: </label>
-			<input type="text" name= "lastname" id="lastname" />
+			<label for="name">Last Name</label>
+			<input type="text" id="lastName" name="lastName" />
 		</p>
 		<p>
-			<label for="email">Email as username: </label>
-			<input type="text" name= "email" id="email" />
+			<label for="name">E-mail</label>
+			<input type="text" id="email" name="email" />
 		</p>
 		<p>
-			<label for="password">Password: </label>
-			<input type="text" name= "password" id="password" />
+			<label for="name">Password</label>
+			<input type="text" id="password" name="password" />
 		</p>
 		<p>
-		<input type="submit" value="Submit" />
+			<input type="submit" value="Create User" />
 		</p>
 	</form>
-
 
 </body>
 </html>

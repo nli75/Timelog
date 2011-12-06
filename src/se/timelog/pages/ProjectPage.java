@@ -14,7 +14,7 @@ import se.timelog.rmi.MockupRMI;
  * Servlet implementation class Project
  */
 
-public class Project extends RestPage {
+public class ProjectPage extends RestPage {
 	
 	@Override
 	public void doCreate(HttpServletRequest request,
@@ -30,11 +30,11 @@ public class Project extends RestPage {
 			estimated_time	= request.getParameter("estimated_time");
 			customer		= request.getParameter("customer");
 			
-			ProjectModel projectModel = new ProjectModel();
-			projectModel.setName(name);
-			projectModel.setBudget(budget);
-			projectModel.setEstimated_time(estimated_time);
-			projectModel.setCustomer(customer);
+			Project project = new Project();
+			project.setName(name);
+			project.setBudget(budget);
+			project.setEstimated_time(estimated_time);
+			project.setCustomer(customer);
 			
 			MockupRMI mockupRMI = new MockupRMI();
 			ArrayList<String> errorlist  = mockupRMI.projectCreate(projectModel);

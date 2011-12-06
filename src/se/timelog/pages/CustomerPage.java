@@ -7,10 +7,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import se.timelog.CustomerModel;
+import se.kyh.ad10.timeloggers.server.entities.Customer;
 import se.timelog.rmi.MockupRMI;
 
-public class Customer extends RestPage {
+public class CustomerPage extends RestPage {
 
 	@Override
 	public void doCreate(HttpServletRequest request,
@@ -23,11 +23,11 @@ public class Customer extends RestPage {
 			
 			name = request.getParameter("name");
 			
-			CustomerModel customerModel = new CustomerModel();
-			customerModel.setName(name);
-			
+			Customer customer = new Customer();
+			customer.setName(name);
+
 			MockupRMI mockupRMI = new MockupRMI();
-			ArrayList<String> errorList  = mockupRMI.customerCreate(customerModel);
+			ArrayList<String> errorList  = mockupRMI.customerCreate(customer);
 			if (errorList.isEmpty()) {
 				request.setAttribute("content", "success");
 				request.getRequestDispatcher("/WEB-INF/views/page_tpl.jsp").forward(request, response);	

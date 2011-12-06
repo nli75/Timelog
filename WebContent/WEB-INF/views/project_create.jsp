@@ -1,8 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.util.ArrayList"%>
-<%
-ArrayList<String> errorList = (ArrayList<String>) request.getAttribute("errorList");
-%>
+<% ArrayList<String> errorList = (ArrayList<String>) request.getAttribute("errorList"); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -44,17 +42,8 @@ ArrayList<String> errorList = (ArrayList<String>) request.getAttribute("errorLis
 			<input type="text" id="budget" name="budget" />
 		</p>
 		<p>
-			<label for="estimated_time">Estimated Time</label>
-			<input type="text" id="estimated_time" name="estimated_time" />
-		</p>
-		<p>
-			<label for="customer">Customer</label>
-			<select id="customer" name="customer">
-				<option value=""></option>
-				<option value="Kalle">Kalle</option>
-				<option value="Ragnar">Ragnar</option>
-				<option value="Mikael">Mikael</option>
-			</select>
+			<label for="estimatedTime">Estimated Time</label>
+			<input type="text" id="estimatedTime" name="estimatedTime" />
 		</p>
 		<p>
 			<input type="submit" value="Submit" />
