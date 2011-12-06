@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
-	import="java.util.ArrayList"
 %>
+<%@ page import="java.util.ArrayList" %>
 <%
-	ArrayList<String> errors = (ArrayList<String>)request.getAttribute("errors"); // Supposed to be array.. ? (catch to print errors)
+	ArrayList<String> errorList = (ArrayList<String>)request.getAttribute("errorList"); // Supposed to be array.. ? (catch to print errors)
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -16,11 +16,26 @@
 </head>
 <body>
 	<h1>Create Project</h1>
-	<%
-	// if (errors != null) {
-	//		print errors(array);
-	// }
-	%>
+	<div>
+		<%
+			if (errorList != null && errorList.size() > 0) {
+				%>
+				<h4>Errors</h4>
+				<ul>
+				<%
+				for (int i=0; i < errorList.size(); i++) {
+					%>
+					<li>
+					<%= errorList.get(i) %>
+					</li>
+					<%
+				}
+				%>
+				</ul>
+				<%
+			}
+		%>
+	</div>
 	<form method="post" action="">
 		<p>
 			<label for="name">Name</label>
@@ -31,17 +46,8 @@
 			<input type="text" id="budget" name="budget" />
 		</p>
 		<p>
-			<label for="estimated_time">Estimated Time</label>
-			<input type="text" id="estimated_time" name="estimated_time" />
-		</p>
-		<p>
-			<label for="customer">Customer</label>
-			<select id="customer" name="customer">
-				<option value=""></option>
-				<option value="Kalle">Kalle</option>
-				<option value="Ragnar">Ragnar</option>
-				<option value="Mikael">Mikael</option>
-			</select>
+			<label for="estimatedTime">Estimated Time</label>
+			<input type="text" id="estimatedTime" name="estimatedTime" />
 		</p>
 		<p>
 			<input type="submit" value="Submit" />

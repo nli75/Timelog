@@ -2,17 +2,17 @@ package se.timelog.rmi;
 
 import java.util.ArrayList;
 
-import se.timelog.CustomerModel;
-import se.timelog.RoleModel;
-import se.timelog.UserModel; // Change accordingly when real model is done
-import se.timelog.ProjectModel;
+import se.kyh.ad10.timeloggers.server.entities.Customer;
+import se.kyh.ad10.timeloggers.server.entities.User;
+import se.kyh.ad10.timeloggers.server.entities.Role;
+import se.kyh.ad10.timeloggers.server.entities.Project;;
 
 public class MockupRMI {
 
 	//login start
-	public boolean login(UserModel userModel){
-		String username = userModel.getEmail();
-		String password = userModel.getPassword();
+	public boolean login(User user){
+		String username = user.getEmail();
+		String password = user.getPassword();
 		if(username.equals("Kalle") && password.equals("apa")){
 			return true;
 			//send username, password to RMI-model
@@ -29,54 +29,54 @@ public class MockupRMI {
 	//login end
 	
 	//create user start
-	public ArrayList<String> userCreate(UserModel userModel) {
+	public ArrayList<String> userCreate(User user) {
 
 		ArrayList<String> errorList = new ArrayList<String>();
 
 		// E-mail
-		if (userModel.getEmail().length() == 0) {
+		if (user.getEmail().length() == 0) {
 			errorList.add("E-mail not set.");
 		} else {
-			if (userModel.getEmail().length() < 6) {
+			if (user.getEmail().length() < 6) {
 				errorList.add("E-mail address too short.");
 			}
-			if (!userModel.getEmail().contains("@")) {
+			if (!user.getEmail().contains("@")) {
 				errorList.add("E-mail address not correct.");
 			}
 		}
 
 		// First name
-		if (userModel.getFirstName().length() == 0) {
+		if (user.getFirstName().length() == 0) {
 			errorList.add("First name not set.");
 		} else {
-			if (userModel.getFirstName().length() < 6) {
+			if (user.getFirstName().length() < 6) {
 				errorList.add("First name too short.");
 			}
-			if (!isAlphaSpace(userModel.getFirstName())) {
+			if (!isAlphaSpace(user.getFirstName())) {
 				errorList.add("First name contains illegal character(s).");
 			}
 		}
 
 		// Last name
-		if (userModel.getLastName().length() == 0) {
+		if (user.getLastName().length() == 0) {
 			errorList.add("Last name not set.");
 		} else {
-			if (userModel.getLastName().length() < 6) {
+			if (user.getLastName().length() < 6) {
 				errorList.add("Last name too short.");
 			}
-			if (!isAlphaSpace(userModel.getLastName())) {
+			if (!isAlphaSpace(user.getLastName())) {
 				errorList.add("Last name contains illegal character(s).");
 			}
 		}
 
 		// Password
-		if (userModel.getPassword().length() == 0) {
+		if (user.getPassword().length() == 0) {
 			errorList.add("Password not set.");
 		} else {
-			if (userModel.getPassword().length() < 6) {
+			if (user.getPassword().length() < 6) {
 				errorList.add("Password too short.");
 			}
-			if (!isAlphanumeric(userModel.getPassword())) {
+			if (!isAlphanumeric(user.getPassword())) {
 				errorList.add("Password contains illegal character(s).");
 			}
 		}
@@ -84,66 +84,51 @@ public class MockupRMI {
 		return errorList;
 	}
 
-	public ArrayList<String> projectCreate(ProjectModel projectModel) {
+	public ArrayList<String> projectCreate(Project project) {
 
 		ArrayList<String> errorList = new ArrayList<String>();
 
 		// Name
-		if (projectModel.getName().length() == 0) {
-			errorList.add("Project name not set.");
+		if (project.getName().isEmpty() || project.getName().length() == 0) {
+			errorList.add("ProjectPage name not set.");
 		} else {
-			if (projectModel.getName().length() < 4) {
-				errorList.add("Project name too short.");
+			if (project.getName().length() < 6) {
+				errorList.add("ProjectPage name too short.");
 			}
-			if (!isAlphanumeric(projectModel.getName())) {
-				errorList.add("Project name contains illegal character(s).");
+			if (!isAlphanumeric(project.getName())) {
+				errorList.add("ProjectPage name contains illegal character(s).");
 			}
-		}
-
-		// Budget
-		if (projectModel.getBudget().length() == 0) {
-			errorList.add("Budget not set.");
-		}
-		
-		// Estimated time
-		if (projectModel.getEstimated_time().length() == 0) {
-			errorList.add("Estimated time not set.");
-		}
-		
-		// Customer
-		if (projectModel.getCustomer().length() == 0) {
-			errorList.add("Customer not set.");
 		}
 		
 		return errorList;
 	}
 
-	public ArrayList<String> customerCreate(CustomerModel customerModel) {
+	public ArrayList<String> customerCreate(Customer customer) {
 		ArrayList<String> errorList = new ArrayList<String>();
 		// Name
-		if (customerModel.getName().length() == 0) {
+		if (customer.getName().length() == 0) {
 			errorList.add("Name not set.");
 		} else {
-			if (customerModel.getName().length() < 6) {
+			if (customer.getName().length() < 6) {
 				errorList.add("Name too short.");
 			}
-			if (!isAlphaSpace(customerModel.getName())) {
+			if (!isAlphaSpace(customer.getName())) {
 				errorList.add("Name contains illegal character(s).");
 			}
 		}
 		return errorList;
 	}
 
-	public ArrayList<String> roleCreate(RoleModel roleModel) {
+	public ArrayList<String> roleCreate(Role role) {
 		ArrayList<String> errorList = new ArrayList<String>();
 		// Name
-		if (roleModel.getName().length() == 0) {
+		if (role.getName().length() == 0) {
 			errorList.add("Name not set.");
 		} else {
-			if (roleModel.getName().length() < 6) {
+			if (role.getName().length() < 6) {
 				errorList.add("Name too short.");
 			}
-			if (!isAlphaSpace(roleModel.getName())) {
+			if (!isAlphaSpace(role.getName())) {
 				errorList.add("Name contains illegal character(s).");
 			}
 		}
