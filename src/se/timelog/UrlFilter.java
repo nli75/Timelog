@@ -22,6 +22,7 @@ import se.timelog.pages.LoginPage;
 import se.timelog.pages.ProjectPage;
 import se.timelog.pages.RolePage;
 import se.timelog.pages.SearchPage;
+import se.timelog.pages.TimelogPage;
 import se.timelog.pages.UserPage;
 
 /**
@@ -40,6 +41,7 @@ public class UrlFilter implements Filter {
 		pages.put("search", new SearchPage());
 		pages.put("customer", new CustomerPage());
 		pages.put("role", new RolePage());
+		pages.put("timelog", new TimelogPage());
 	}
 
 	/**

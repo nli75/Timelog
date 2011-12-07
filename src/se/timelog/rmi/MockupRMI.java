@@ -3,6 +3,7 @@ package se.timelog.rmi;
 import java.util.ArrayList;
 
 import se.kyh.ad10.timeloggers.server.entities.Customer;
+import se.kyh.ad10.timeloggers.server.entities.Timelog;
 import se.kyh.ad10.timeloggers.server.entities.User;
 import se.kyh.ad10.timeloggers.server.entities.Role;
 import se.kyh.ad10.timeloggers.server.entities.Project;;
@@ -130,6 +131,22 @@ public class MockupRMI {
 			}
 			if (!isAlphaSpace(role.getName())) {
 				errorList.add("Name contains illegal character(s).");
+			}
+		}
+		return errorList;
+	}
+	
+	public ArrayList<String> timelogCreate(Timelog timelog) {
+		ArrayList<String> errorList = new ArrayList<String>();
+		// Name
+		if (timelog.getTitle().length() == 0) {
+			errorList.add("Title not set.");
+		} else {
+			if (timelog.getTitle().length() < 6) {
+				errorList.add("Title too short.");
+			}
+			if (!isAlphaSpace(timelog.getTitle())) {
+				errorList.add("Title contains illegal character(s).");
 			}
 		}
 		return errorList;
