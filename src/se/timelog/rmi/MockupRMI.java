@@ -138,7 +138,7 @@ public class MockupRMI {
 	
 	public ArrayList<String> timelogCreate(Timelog timelog) {
 		ArrayList<String> errorList = new ArrayList<String>();
-		// Name
+		// Title
 		if (timelog.getTitle().length() == 0) {
 			errorList.add("Title not set.");
 		} else {
