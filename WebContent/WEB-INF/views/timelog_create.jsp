@@ -25,6 +25,7 @@
 		}
 	%>
 </div>
+<p>Refrain from removing/editing the default-values since error-handling for the Date-object is not complete yet.</p>
 <form method="post" action="">
 	<p>
 		<label for="title">Title</label>
