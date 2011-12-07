@@ -1,5 +1,16 @@
-body {
-	
+/**
+ * layout
+ */
+#logout{
+	background: #b2b2b2;
+	width: 80%;
+}
+#menu_search{
+	width: 80%;
+	overflow:hidden;
+	border: thin black solid;
+	color: #fff;
+	background: #000;
 }
 
 label {
