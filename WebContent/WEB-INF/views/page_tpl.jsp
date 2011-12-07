@@ -1,9 +1,17 @@
 <% String content = (String)request.getAttribute("content"); %>
 <jsp:include page="/WEB-INF/views/header.jsp" />
 
-<%-- put an if session on this --%>
+<%-- TODO put an if session on this --%>
 <jsp:include page="/WEB-INF/views/home.jsp" />
-<%-- end if --%>
+<div id="menu_search">
+	<div id="menu">
+		<jsp:include page="/WEB-INF/views/menu.jsp" />
+	</div>
+	<div id="search">
+		<jsp:include page="/WEB-INF/views/search.jsp" />
+	</div>
+</div>
+<%-- TODO end if --%>
 
 <jsp:include page="/WEB-INF/views/${content}.jsp" />
 

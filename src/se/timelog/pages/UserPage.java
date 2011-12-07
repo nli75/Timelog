@@ -45,7 +45,7 @@ public class UserPage extends RestPage {
 			} else {
 				request.setAttribute("errorList", errorList);
 				request.setAttribute("content", "user_create");
-				request.getRequestDispatcher("/WEB-INF/views/page_tpl.jsp").forward(request, response);	
+				request.getRequestDispatcher("/WEB-INF/views/page_tpl.jsp").forward(request, response);
 			}
 		}
 	}
