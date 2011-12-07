@@ -64,7 +64,7 @@ public class UrlFilter implements Filter {
 		List<String> remainingPath = new ArrayList<String>(Arrays.asList(pathSplitted));
 
 		String pageName = remainingPath.get(0);
-		
+
 		Page page = pages.get(pageName);
 
 		if (page != null) {
