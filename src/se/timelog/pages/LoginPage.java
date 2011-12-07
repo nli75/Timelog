@@ -23,13 +23,13 @@ public class LoginPage extends JspPage {
 			request.setAttribute("content", "login");
 			request.getRequestDispatcher("/WEB-INF/views/page_tpl.jsp").forward(request, response);
 		} else {
-			String username, password;
+			String email, password;
 			
-			username = request.getParameter("username");
+			email = request.getParameter("email");
 			password = request.getParameter("password");
 			
 			User user = new User();
-			user.setEmail(username);
+			user.setEmail(email);
 			user.setPassword(password);
 			
 			MockupRMI mockupRMI = new MockupRMI();
@@ -39,7 +39,7 @@ public class LoginPage extends JspPage {
 				request.getRequestDispatcher("/WEB-INF/views/page_tpl.jsp").forward(request, response);	
 			} else {
 				request.setAttribute("content", "login");
-				request.setAttribute("failed", "Fel användarnamn eller lösenord");
+				request.setAttribute("failed", "Email or password does not match");
 				request.getRequestDispatcher("/WEB-INF/views/page_tpl.jsp").forward(request, response);	
 			}
 		}
