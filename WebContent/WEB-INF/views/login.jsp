@@ -12,8 +12,8 @@
 <% } %>
 <form action="" method="post">
 	<p>
-		<label for="username">Username: </label>
-		<input type="text" id="username" name="username" />
+		<label for="email">Email: </label>
+		<input type="text" id="email" name="email" />
 	</p>
 	<p>
 		<label for="password">Password: </label>
@@ -21,5 +21,5 @@
 	</p>
 	<p>
 	</p>
-		<input type="submit" value="Submit" />
+		<input type="submit" value="Login" />
 </form>
