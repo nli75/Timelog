@@ -4,6 +4,7 @@
 #logout{
 	background: #b2b2b2;
 	width: 80%;
+	border: thin #b2b2b2 solid;
 }
 #menu_search{
 	width: 80%;

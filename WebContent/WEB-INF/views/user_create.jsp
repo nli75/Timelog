@@ -36,7 +36,7 @@
 	</p>
 	<p>
 		<label for="name">Password</label>
-		<input type="text" id="password" name="password" />
+		<input type="password" id="password" name="password" />
 	</p>
 	<p>
 		<input type="submit" value="Create User" />
