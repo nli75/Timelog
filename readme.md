@@ -19,5 +19,5 @@ Programmatic guidelines
 -	Classes should be named with upper camelcasing
 -	Methods & Variables should be named with lower camelcasing
 -	Indentation should be tabs with a length of 4 characters (no spaces)
-
+-	Imported classes should always be listed explicitly.(NOT: import java.util.*;)
 

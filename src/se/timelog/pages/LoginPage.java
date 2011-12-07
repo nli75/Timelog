@@ -35,10 +35,10 @@ public class LoginPage extends JspPage {
 			MockupRMI mockupRMI = new MockupRMI();
 			boolean status  = mockupRMI.login(user);
 			if (status) {
-				request.setAttribute("content", "home");
+				request.setAttribute("content", "login");
 				request.getRequestDispatcher("/WEB-INF/views/page_tpl.jsp").forward(request, response);	
 			} else {
-				request.setAttribute("content", "home");
+				request.setAttribute("content", "login");
 				request.setAttribute("failed", "Fel användarnamn eller lösenord");
 				request.getRequestDispatcher("/WEB-INF/views/page_tpl.jsp").forward(request, response);	
 			}
