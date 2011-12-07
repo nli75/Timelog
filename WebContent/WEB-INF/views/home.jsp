@@ -1,15 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>home</title>
-</head>
-<body>
-<p>Jag Ã¤r inloggad. HÃ¤r Ã¤r fÃ¶rsta sidan</p>
+<p>Jag är inloggad. Här är första sidan</p>
 <form action="" method="post">
 	<div id= logout_submit><input type="submit" value="Logout" /></div>
 </form>
-</body>
-</html>

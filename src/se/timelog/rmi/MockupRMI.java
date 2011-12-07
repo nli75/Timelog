@@ -11,9 +11,9 @@ public class MockupRMI {
 
 	//login start
 	public boolean login(User user){
-		String username = user.getEmail();
+		String email = user.getEmail();
 		String password = user.getPassword();
-		if(username.equals("Kalle") && password.equals("apa")){
+		if(email.equals("Kalle") && password.equals("apa")){
 			return true;
 			//send username, password to RMI-model
 			//get session object? or true?

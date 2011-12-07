@@ -30,7 +30,7 @@ public class RolePage extends RestPage {
 			ArrayList<String> errorList  = mockupRMI.roleCreate(role);
 			if (errorList.isEmpty()) {
 				request.setAttribute("content", "success");
-				request.getRequestDispatcher("/WEB-INF/views/success.jsp").forward(request, response);	
+				request.getRequestDispatcher("/WEB-INF/views/page_tpl.jsp").forward(request, response);	
 			} else {
 				request.setAttribute("content", "role_create");
 				request.setAttribute("errorList", errorList);

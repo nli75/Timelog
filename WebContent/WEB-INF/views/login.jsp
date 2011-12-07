@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%><%
+<%
 
 	String failed =  (String)request.getAttribute("failed");
 	
@@ -17,8 +16,8 @@
 		<input type="text" id="username" name="username" />
 	</p>
 	<p>
-		<label for="passord">Password: </label>
-		<input type="text" id="passord" name="passord" />
+		<label for="password">Password: </label>
+		<input type="text" id="password" name="password" />
 	</p>
 	<p>
 	</p>
