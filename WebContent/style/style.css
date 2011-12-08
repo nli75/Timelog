@@ -183,7 +183,8 @@ input[type="submit"]:hover {
 	display:inline;
 }
 #main_menu #search input {
-	/*background:url("search.png") no-repeat scroll 4px 4px transparent;*/
+	background:url("../images/icons/search.png") no-repeat scroll 4px 6px #FFF;
+	padding-left:20px;
 }
 
 
