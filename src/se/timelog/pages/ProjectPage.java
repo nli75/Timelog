@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import se.kyh.ad10.timeloggers.server.entities.Project;
 import se.timelog.pages.RestPage;
+import se.timelog.rmi.ClientRMI;
 import se.timelog.rmi.MockupRMI;
 
 /**
@@ -45,8 +46,9 @@ public class ProjectPage extends RestPage {
 			project.setBudget(budget);
 			project.setEstimatedTime(estimatedTime);
 			
-			MockupRMI mockupRMI = new MockupRMI();
-			ArrayList<String> errorList  = mockupRMI.projectCreate(project);
+			ClientRMI clientRMI = new ClientRMI();
+			//MockupRMI mockupRMI = new MockupRMI();
+			ArrayList<String> errorList  = clientRMI.projectCreate(project);
 			if (errorList.isEmpty()) {
 				request.getRequestDispatcher("/WEB-INF/views/success.jsp").forward(request, response);	
 			} else {
