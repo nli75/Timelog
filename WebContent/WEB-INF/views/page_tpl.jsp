@@ -1,20 +1,14 @@
-<% String content = (String)request.getAttribute("content"); %>
-<jsp:include page="/WEB-INF/views/header.jsp" />
+<%
+	String content = (String)request.getAttribute("content");
+%>
 
-<%-- TODO put an if session on this --%>
-<div id="logout">
-	<jsp:include page="/WEB-INF/views/home.jsp" />
+<jsp:include page="/WEB-INF/views/includes/header.jsp" />
+
+<jsp:include page="/WEB-INF/views/header/status_bar.jsp" />
+<jsp:include page="/WEB-INF/views/header/main_menu.jsp" />
+
+<div id="content" class="centrilize">
+	<jsp:include page="/WEB-INF/views/${content}.jsp" />
 </div>
-<div id="menu_search">
-	<div id="menu">
-		<jsp:include page="/WEB-INF/views/menu.jsp" />
-	</div>
-	<div id="search">
-		<jsp:include page="/WEB-INF/views/search.jsp" />
-	</div>
-</div>
-<%-- TODO end if --%>
 
-<jsp:include page="/WEB-INF/views/${content}.jsp" />
-
-<jsp:include page="/WEB-INF/views/footer.jsp" />
+<jsp:include page="/WEB-INF/views/includes/footer.jsp" />

@@ -35,8 +35,8 @@ public class UrlFilter implements Filter {
 	 */
 	public UrlFilter() {
 		super();
+		pages.put("", new LoginPage());
 		pages.put("user", new UserPage());
-		pages.put("login", new LoginPage());
 		pages.put("project", new ProjectPage());
 		pages.put("search", new SearchPage());
 		pages.put("customer", new CustomerPage());

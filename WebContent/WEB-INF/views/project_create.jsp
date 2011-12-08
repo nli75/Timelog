@@ -3,8 +3,9 @@
 	ArrayList<String> errorList = (ArrayList<String>)request.getAttribute("errorList");
 %>
 
+
 <h1>Create Project</h1>
-<div>
+<div id="user1">
 	<%
 		if (errorList != null && errorList.size() > 0) {
 			%>
@@ -23,21 +24,21 @@
 			<%
 		}
 	%>
+	<form method="post" action="">
+		<p>
+			<label for="name">Name</label>
+			<input type="text" id="name" name="name" />
+		</p>
+		<p>
+			<label for="budget">Budget</label>
+			<input type="text" id="budget" name="budget" />
+		</p>
+		<p>
+			<label for="estimatedTime">Estimated Time</label>
+			<input type="text" id="estimatedTime" name="estimatedTime" />
+		</p>
+		<p>
+			<input type="submit" value="Submit" />
+		</p>
+	</form>
 </div>
-<form method="post" action="">
-	<p>
-		<label for="name">Name</label>
-		<input type="text" id="name" name="name" />
-	</p>
-	<p>
-		<label for="budget">Budget</label>
-		<input type="text" id="budget" name="budget" />
-	</p>
-	<p>
-		<label for="estimatedTime">Estimated Time</label>
-		<input type="text" id="estimatedTime" name="estimatedTime" />
-	</p>
-	<p>
-		<input type="submit" value="Submit" />
-	</p>
-</form>

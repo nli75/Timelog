@@ -20,8 +20,7 @@ public class LoginPage extends JspPage {
 			HttpServletResponse response) throws ServletException, IOException {
 		
 		if ("GET".equals(request.getMethod())) {
-			request.setAttribute("content", "login");
-			request.getRequestDispatcher("/WEB-INF/views/page_tpl.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
 		} else {
 			String email, password;
 			
@@ -35,12 +34,10 @@ public class LoginPage extends JspPage {
 			MockupRMI mockupRMI = new MockupRMI();
 			boolean status  = mockupRMI.login(user);
 			if (status) {
-				request.setAttribute("content", "success");
-				request.getRequestDispatcher("/WEB-INF/views/page_tpl.jsp").forward(request, response);	
+				response.sendRedirect("/Timelog/project/create");
 			} else {
-				request.setAttribute("content", "login");
 				request.setAttribute("failed", "Email or password does not match");
-				request.getRequestDispatcher("/WEB-INF/views/page_tpl.jsp").forward(request, response);	
+				request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);	
 			}
 		}
 		
