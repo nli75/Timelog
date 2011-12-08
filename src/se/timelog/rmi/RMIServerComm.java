@@ -15,8 +15,6 @@ public class RMIServerComm {
 
 	private SecurityLayer securityLayer = null;
 
-	private UUID sessionId;
-
 	private RMIServerComm() throws RemoteException {
 		connect();
 	}
@@ -25,13 +23,25 @@ public class RMIServerComm {
 		try {
 			Registry registry = LocateRegistry.getRegistry("localhost", 1099);
 			securityLayer = (SecurityLayer) registry.lookup(SecurityLayer.name); //Waiting for updated SecurityLayer class from theTimeloggers
-			sessionId = securityLayer.createSession();
+			//UUID sessionId = securityLayer.createSession();
 		} catch (NotBoundException e) {
 			throw new RemoteException("", e);
 		}
 	}
+	
+	public UUID getSessionId() throws RemoteException {
+		UUID sessionId = null;
+		try {
+			sessionId = securityLayer.createSession();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			connect(); // FIXME: refactor: try one more time, but better
+			sessionId = securityLayer.createSession();
+		}
+		return sessionId;
+	}
 
-	public PublicInterface getPublicInterface() throws RemoteException {
+	public PublicInterface getPublicInterface(UUID sessionId) throws RemoteException {
 		PublicInterface publicInterface = null;
 		try {
 			publicInterface = securityLayer.getPublicInterface(sessionId);

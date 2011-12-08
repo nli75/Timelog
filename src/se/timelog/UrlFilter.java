@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import se.timelog.pages.CustomerPage;
+import se.timelog.pages.LogoutPage;
 import se.timelog.pages.Page;
 import se.timelog.pages.LoginPage;
 import se.timelog.pages.ProjectPage;
@@ -36,6 +37,7 @@ public class UrlFilter implements Filter {
 	public UrlFilter() {
 		super();
 		pages.put("", new LoginPage());
+		pages.put("logout", new LogoutPage());
 		pages.put("user", new UserPage());
 		pages.put("project", new ProjectPage());
 		pages.put("search", new SearchPage());

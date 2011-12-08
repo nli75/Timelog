@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 public class SearchPage extends JspPage {
 
 	@Override
-	public void doStuff(List<String> remainingPath, HttpServletRequest request,
+	public void realDoStuff(List<String> remainingPath, HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String method = null;

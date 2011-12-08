@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public abstract class RestPage extends Page {
 
-	public void doStuff(List<String> remainingPath, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void realDoStuff(List<String> remainingPath, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		//remainingPath.remove(0);
 		String method = remainingPath.get(1); // Av någon anledning så fungerar inte förra raden så för tillfället har jag .get(1)

@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import se.kyh.ad10.timeloggers.server.entities.User;
 import se.timelog.rmi.MockupRMI;
@@ -16,7 +17,7 @@ import se.timelog.rmi.MockupRMI;
 public class LoginPage extends JspPage {
 	
 	@Override
-	public void doStuff(List<String> remainingPath, HttpServletRequest request, 
+	public void realDoStuff(List<String> remainingPath, HttpServletRequest request, 
 			HttpServletResponse response) throws ServletException, IOException {
 		
 		if ("GET".equals(request.getMethod())) {
@@ -34,6 +35,8 @@ public class LoginPage extends JspPage {
 			MockupRMI mockupRMI = new MockupRMI();
 			boolean status  = mockupRMI.login(user);
 			if (status) {
+				HttpSession session = request.getSession(true);
+				session.setAttribute("username", email);
 				response.sendRedirect("/Timelog/project/create");
 			} else {
 				request.setAttribute("failed", "Email or password does not match");
@@ -42,5 +45,8 @@ public class LoginPage extends JspPage {
 		}
 		
 	}
-
+	
+	public boolean doAuthorize(List<String> remainingPath, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		return true;
+	}
 }
