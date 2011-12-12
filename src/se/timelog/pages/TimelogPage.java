@@ -33,13 +33,11 @@ public class TimelogPage extends RestPage {
 				e.printStackTrace();
 			}
 			int duration = Integer.parseInt(request.getParameter("duration"));
-			int projectId = Integer.parseInt(request.getParameter("projectId"));
 			Timelog timelog = new Timelog();
 			timelog.setTitle(title);
 			timelog.setComment(comment);
 			timelog.setStart(start);
 			timelog.setDuration(duration);
-			timelog.setProjectId(projectId);
 
 			MockupRMI mockupRMI = new MockupRMI();
 			ArrayList<String> errorList  = mockupRMI.timelogCreate(timelog);
