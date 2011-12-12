@@ -1,6 +1,8 @@
 package se.timelog.rmi;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.UUID;
 
 import se.kyh.ad10.timeloggers.server.entities.Customer;
 import se.kyh.ad10.timeloggers.server.entities.Timelog;
@@ -100,7 +102,13 @@ public class MockupRMI {
 				errorList.add("ProjectPage name contains illegal character(s).");
 			}
 		}
-		
+		if(errorList.isEmpty()){
+			UUID sessionId = RMIServerComm.get().getSessionId();
+			boolean answer = RMIServerComm.get().getPublicInterface(sessionId).getProjectDAO().saveProject(project);
+			if(answer == false){
+				errorList.add("Couldn't connect to server");
+			}
+		}
 		return errorList;
 	}
 
