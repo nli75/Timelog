@@ -103,8 +103,20 @@ public class MockupRMI {
 			}
 		}
 		if(errorList.isEmpty()){
-			UUID sessionId = RMIServerComm.get().getSessionId();
-			boolean answer = RMIServerComm.get().getPublicInterface(sessionId).getProjectDAO().saveProject(project);
+			UUID sessionId = null;
+			try {
+				sessionId = RMIServerComm.get().getSessionId();
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			boolean answer = false;
+			try {
+				answer = RMIServerComm.get().getPublicInterface(sessionId).getProjectDAO().saveProject(project);
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			if(answer == false){
 				errorList.add("Couldn't connect to server");
 			}
