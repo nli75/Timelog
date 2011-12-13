@@ -23,5 +23,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jta-1.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/slf4j-api-1.6.1.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/theTimeloggersPublic"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/theTimeloggersServer.jar"/>
 	<classpathentry kind="output" path="WebContent/WEB-INF/classes"/>
 </classpath>
