@@ -21,7 +21,10 @@ public class RMIServerComm {
 
 	private void connect() throws RemoteException {
 		try {
-			Registry registry = LocateRegistry.getRegistry("//31.192.226.120:1099/", 1099);
+			//Glesys server connection
+			//Registry registry = LocateRegistry.getRegistry("//31.192.226.120:1099/", 1099);
+			//Localhost server connection
+			Registry registry = LocateRegistry.getRegistry();
 			securityLayer = (SecurityLayer) registry.lookup(SecurityLayer.name); //Waiting for updated SecurityLayer class from theTimeloggers
 			//UUID sessionId = securityLayer.createSession();
 		} catch (NotBoundException e) {
