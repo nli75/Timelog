@@ -59,25 +59,25 @@ public class ProjectPage extends RestPage {
 
 	@Override
 	public void doUpdate(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+			HttpServletResponse response, Integer id) throws ServletException, IOException {
 		
 	}
 
 	@Override
 	public void doDelete(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+			HttpServletResponse response, Integer id) throws ServletException, IOException {
 		
 	}
 
 	//means get by id
 	@Override
 	public void doGet(HttpServletRequest request, 
-			HttpServletResponse response) throws ServletException, IOException {
+			HttpServletResponse response, Integer id) throws ServletException, IOException {
 		
 	}
 	@Override
 	public void doElse(HttpServletRequest request, 
-			HttpServletResponse response) throws ServletException, IOException {
+			HttpServletResponse response, Integer id) throws ServletException, IOException {
 		
 	}
 
