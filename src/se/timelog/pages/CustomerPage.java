@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import se.kyh.ad10.timeloggers.server.entities.Customer;
-import se.timelog.rmi.MockupRMI;
 import se.timelog.rmi.RMIServerComm;
 
 public class CustomerPage extends RestPage {
