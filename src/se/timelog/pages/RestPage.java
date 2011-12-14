@@ -20,15 +20,19 @@ public abstract class RestPage extends Page {
 			doUpdate(request, response);
 		} else if ("delete".equals(method)){
 			doDelete(request, response);
-		} else {
+		} else if ("get".equals(method)){
 			doGet(request, response);
+		}else{
+			doElse(request, response);
 		}
+		
 	}
 	
 	public abstract void doCreate(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException;
 	public abstract void doUpdate(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException;
 	public abstract void doDelete(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException;
 	public abstract void doGet(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException;
+	public abstract void doElse(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException;
 
 	
 }

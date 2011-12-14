@@ -70,8 +70,14 @@ public class ProjectPage extends RestPage {
 		
 	}
 
+	//means get by id
 	@Override
 	public void doGet(HttpServletRequest request, 
+			HttpServletResponse response) throws ServletException, IOException {
+		
+	}
+	@Override
+	public void doElse(HttpServletRequest request, 
 			HttpServletResponse response) throws ServletException, IOException {
 		
 	}
