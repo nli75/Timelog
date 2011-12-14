@@ -9,8 +9,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import antlr.collections.List;
-
 import se.kyh.ad10.timeloggers.server.entities.Project;
 import se.timelog.pages.RestPage;
 import se.timelog.rmi.RMIServerComm;
@@ -72,37 +70,16 @@ public class ProjectPage extends RestPage {
 		
 	}
 
+	//means get by id
 	@Override
 	public void doGet(HttpServletRequest request, 
 			HttpServletResponse response) throws ServletException, IOException {
-		if ("GET".equals(request.getMethod())) {
-			
-			UUID sessionId = null;
-			try {
-				sessionId = RMIServerComm.get().getSessionId();
-			} catch (RemoteException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			List answer = null;
-			try {
-				answer = (List)RMIServerComm.get().getPublicInterface(sessionId).getProjectDAO().getAllProjects();
-			} catch (RemoteException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			if(answer.length()>= 0){			
-				request.setAttribute("ProjectsList", answer);
-				request.setAttribute("content", "projects_read");
-				request.getRequestDispatcher("/WEB-INF/views/page_tpl.jsp").forward(request, response);	
-			}else{
-				request.setAttribute("ProjectsList", answer);
-				request.setAttribute("content", "projects_read");
-				request.getRequestDispatcher("/WEB-INF/views/page_tpl.jsp").forward(request, response);	
-				//errorList.add("Couldn't connect to server");
-			}
-			
-		}
+		
+	}
+	@Override
+	public void doElse(HttpServletRequest request, 
+			HttpServletResponse response) throws ServletException, IOException {
+		
 	}
 	
 	public ArrayList<String> projectCreate(Project project) {

@@ -91,5 +91,9 @@ public class CustomerPage extends RestPage {
 			HttpServletResponse response) throws ServletException, IOException {
 		
 	}
-
+	@Override
+	public void doElse(HttpServletRequest request, 
+			HttpServletResponse response) throws ServletException, IOException {
+		
+	}
 }
