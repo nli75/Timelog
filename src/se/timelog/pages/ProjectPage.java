@@ -47,7 +47,7 @@ public class ProjectPage extends RestPage {
 			project.setBudget(budget);
 			project.setEstimatedTime(estimatedTime);
 			
-			ArrayList<String> errorList  = projectCreate(project);
+			ArrayList<String> errorList = projectCreate(project);
 			if (errorList.isEmpty()) {
 				request.getRequestDispatcher("/WEB-INF/views/success.jsp").forward(request, response);	
 			} else {
