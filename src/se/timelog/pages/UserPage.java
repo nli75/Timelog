@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import se.kyh.ad10.timeloggers.server.entities.User;
 import se.timelog.pages.RestPage;
-import se.timelog.rmi.MockupRMI;
 import se.timelog.rmi.RMIServerComm;
 
 /**
