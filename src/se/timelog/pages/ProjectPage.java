@@ -1,9 +1,7 @@
 package se.timelog.pages;
 
 import java.io.IOException;
-import java.rmi.RemoteException;
 import java.util.ArrayList;
-import java.util.UUID;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -11,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import se.kyh.ad10.timeloggers.server.entities.Project;
 import se.timelog.pages.RestPage;
-import se.timelog.rmi.RMIServerComm;
+import se.timelog.rmi.MockupRMI;
 
 /**
  * Servlet implementation class ProjectPage
@@ -47,7 +45,8 @@ public class ProjectPage extends RestPage {
 			project.setBudget(budget);
 			project.setEstimatedTime(estimatedTime);
 			
-			ArrayList<String> errorList = projectCreate(project);
+			MockupRMI mockupRMI = new MockupRMI();
+			ArrayList<String> errorList = mockupRMI.projectCreate(project);
 			if (errorList.isEmpty()) {
 				request.getRequestDispatcher("/WEB-INF/views/success.jsp").forward(request, response);	
 			} else {
@@ -80,43 +79,6 @@ public class ProjectPage extends RestPage {
 	public void doElse(HttpServletRequest request, 
 			HttpServletResponse response) throws ServletException, IOException {
 		
-	}
-	
-	public ArrayList<String> projectCreate(Project project) {
-
-		ArrayList<String> errorList = new ArrayList<String>();
-
-		// Name
-		if (project.getName().isEmpty() || project.getName().length() == 0) {
-			errorList.add("ProjectPage name not set.");
-		} else {
-			if (project.getName().length() < 6) {
-				errorList.add("ProjectPage name too short.");
-			}
-			if (!Validation.isAlphanumeric(project.getName())) {
-				errorList.add("ProjectPage name contains illegal character(s).");
-			}
-		}
-		if(errorList.isEmpty()){
-			UUID sessionId = null;
-			try {
-				sessionId = RMIServerComm.get().getSessionId();
-			} catch (RemoteException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			boolean answer = false;
-			try {
-				answer = RMIServerComm.get().getPublicInterface(sessionId).getProjectDAO().saveProject(project);
-			} catch (RemoteException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			if(answer == false){
-				errorList.add("Couldn't connect to server");
-			}
-		}
-		return errorList;
 	}
 
 }

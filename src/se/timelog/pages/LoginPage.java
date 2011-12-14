@@ -1,9 +1,7 @@
 package se.timelog.pages;
 
 import java.io.IOException;
-import java.rmi.RemoteException;
 import java.util.List;
-import java.util.UUID;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -11,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import se.kyh.ad10.timeloggers.server.entities.User;
-import se.timelog.rmi.RMIServerComm;
+import se.timelog.rmi.MockupRMI;
 
 /**
  * Servlet implementation class LoginPage
@@ -34,7 +32,8 @@ public class LoginPage extends JspPage {
 			user.setEmail(email);
 			user.setPassword(password);
 			
-			boolean status = login(user);
+			MockupRMI mockupRMI = new MockupRMI();
+			boolean status = mockupRMI.login(user);
 			if (status) {
 				HttpSession session = request.getSession(true);
 				session.setAttribute("username", email);
@@ -50,28 +49,5 @@ public class LoginPage extends JspPage {
 	public boolean doAuthorize(List<String> remainingPath, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		return true;
 	}
-	
-	public boolean login(User user){
-		String email = user.getEmail();
-		String password = user.getPassword();
-		
-		UUID sessionId = null;
-		try {
-			sessionId = RMIServerComm.get().getSessionId();
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		User answer = null;
-		try {
-			answer = RMIServerComm.get().getPublicInterface(sessionId).getUserDAO().login(email, password);
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		if(answer == null){
-			return false;
-		}
-		return true;
-	}
+
 }
